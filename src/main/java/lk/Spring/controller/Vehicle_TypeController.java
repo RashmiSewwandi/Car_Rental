@@ -1,8 +1,8 @@
 package lk.Spring.controller;
 
 
-import lk.Spring.dto.VehicleDTO;
-import lk.Spring.service.VehicleService;
+import lk.Spring.dto.Vehicle_TypeDTO;
+import lk.Spring.service.Vehicle_TypeService;
 import lk.Spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,46 +10,45 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("Vehicle")
+@RequestMapping("VehicleType")
 @CrossOrigin
-public class VehicleController {
+public class Vehicle_TypeController {
 
     @Autowired
-    VehicleService vehicleService;
-
+    Vehicle_TypeService vehicle_typeService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveVehicle(@RequestBody VehicleDTO vehicleDTO){
-        vehicleService.saveVehicle(vehicleDTO);
+    public ResponseUtil saveVehicleType(@ModelAttribute Vehicle_TypeDTO vehicleTypeDTO){
+        vehicle_typeService.saveVehicleType(vehicleTypeDTO);
         return new ResponseUtil(200,"Saved",null);
+
     }
 
 
     @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteVehicle(@RequestParam String id){
-        vehicleService.deleteVehicle(id);
+    public ResponseUtil deleteVehicleType(@RequestParam String id){
+        vehicle_typeService.deleteVehicleType(id);
         return new ResponseUtil(200,"Deleted Success",null);
     }
 
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateVehicle(@RequestBody VehicleDTO vehicleDTO){
-        vehicleService.updateVehicle(vehicleDTO);
+    public ResponseUtil updateVehicleType(@RequestBody Vehicle_TypeDTO vehicleTypeDTO){
+        vehicle_typeService.updateVehicleType(vehicleTypeDTO);
         return new ResponseUtil(200,"Update Success",null);
     }
 
-
     @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil searchVehicle(@PathVariable String id){
-        return new ResponseUtil(200,"Done",vehicleService.searchVehicle(id));
+    public ResponseUtil searchVehicleType(@PathVariable String id){
+        return new ResponseUtil(200,"Done",vehicle_typeService.searchVehicleType(id));
     }
-
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil getAllVehicle (){
-        return new ResponseUtil(200,"Done",vehicleService.getAllVehicles());
+    public ResponseUtil getAllVehicleType (){
+        return new ResponseUtil(200,"Done",vehicle_typeService.getAllVehicleTypes());
     }
+
 
 
 }

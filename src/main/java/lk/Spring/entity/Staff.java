@@ -8,20 +8,19 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@ToString
 @Entity
-public class Driver {
+@ToString
+public class Staff {
     @Id
-    private String driverId;
+    private String staff_Id;
     private String name;
     private String address;
-    private String mobileNo;
+    private String type;
+    private String mobile_Number;
     private String email;
     private String password;
-    private String status;
 
 }

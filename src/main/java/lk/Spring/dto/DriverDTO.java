@@ -1,21 +1,16 @@
-package lk.Spring.entity;
+package lk.Spring.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString
-@Entity
-public class Driver {
-    @Id
+public class DriverDTO {
+
     private String driverId;
     private String name;
     private String address;

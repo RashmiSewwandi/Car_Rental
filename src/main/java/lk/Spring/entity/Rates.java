@@ -13,14 +13,13 @@ import javax.persistence.Id;
 @Data
 @Entity
 @ToString
-public class Car_Rental_Staff {
+public class Rates {
     @Id
-    private String staff_Id;
-    private String name;
-    private String address;
-    private String type;
-    private String mobile_Number;
-    private String email;
-    private String password;
+    private String rate_Id;
+    private double daily_Rate;
+    private double monthly_rate;
+    private int free_Km_Day;
+    private int free_Km_Month;
+    private double extra_Km_Price;
 
 }
